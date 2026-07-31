@@ -6,6 +6,10 @@
 
 **Team members:** Silas Jude, Madhav Krishnaraj, Rami Abukhater, Toby Zhang
 
+<p align="center">
+  <img src="docs/car.png" alt="Our 1/10-scale Donkeycar with Raspberry Pi and OAK-D camera" width="360">
+</p>
+
 ## Overview
 
 This project builds an autonomous 1/10-scale RC car on the [Donkeycar](https://github.com/autorope/donkeycar) platform that follows a marked track and avoids obstacles using classical computer vision (no deep-learning model). The car runs on a Raspberry Pi with an OAK-D depth camera and drives an outdoor pedestrian plaza marked with a dashed yellow centreline and solid white boundary lines.
@@ -20,7 +24,11 @@ The hard parts are that the centreline is *dashed* (the primary signal disappear
 
 ## Demo & presentation
 
-- **Demo video:** https://drive.google.com/file/d/1HX0A4RsHaGcY5_dvtlrdN2-dFmzvkscr/view?usp=sharing
+**Demo video** — click the preview below to watch the car line-following and avoiding obstacles on autopilot:
+
+[![Watch the demo video](docs/demo_preview.png)](https://drive.google.com/file/d/1HX0A4RsHaGcY5_dvtlrdN2-dFmzvkscr/view?usp=sharing)
+
+- **Demo video (direct link):** https://drive.google.com/file/d/1HX0A4RsHaGcY5_dvtlrdN2-dFmzvkscr/view?usp=sharing
 - **Final presentation (Google Slides):** https://docs.google.com/presentation/d/10fKYDSIw8ZOM-bpjuJorGRp1Ba1uUbfYah_yTGAOlgI/edit?usp=sharing
 
 ## How the detector works
@@ -68,7 +76,7 @@ cd ~/mycar
 python manage_line.py drive
 ```
 
-The live-tuning dashboard is then served at `http://<car>:8887/`, with the stock Donkeycar UI still available at `/drive`.
+The live-tuning dashboard is then served at `http://<car>:8887/dashboard`, with the stock Donkeycar UI still available at `/drive`.
 
 The recorded data tub, logs, models and backups are deliberately excluded from this snapshot — they are data, not source. The analysis in `WORKLOG_20260730.md` cites them by session and frame index.
 
