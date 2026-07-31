@@ -4,10 +4,10 @@
 
 **Team 1 — DSC 190 (Summer I), Track 2: Agentic Development**
 
-**Team members:** Silas Jude, Madhav Krishnaraj, Rami Abukhater, Toby Zhang
+**Team members:** [Silas Jude](https://www.linkedin.com/in/silas-jude-45937329b), [Madhav Krishnaraj](https://www.linkedin.com/in/madhav-pudukottai-krishnaraj-437220294/), [Rami Abukhater](https://www.linkedin.com/in/rami-abukhater), [Toby Zhang](https://www.linkedin.com/in/tobyzh)
 
 <p align="center">
-  <img src="docs/car.png" alt="Our 1/10-scale Donkeycar with Raspberry Pi and OAK-D camera" width="360">
+<img src="docs/car.png" alt="Our 1/10-scale Donkeycar with Raspberry Pi and OAK-D camera" width="360">
 </p>
 
 ## Overview
@@ -79,6 +79,19 @@ python manage_line.py drive
 The live-tuning dashboard is then served at `http://<car>:8887/dashboard`, with the stock Donkeycar UI still available at `/drive`.
 
 The recorded data tub, logs, models and backups are deliberately excluded from this snapshot — they are data, not source. The analysis in `WORKLOG_20260730.md` cites them by session and frame index.
+
+## Dashboard
+
+`dashboard.py` and `dashboard.html` serve a live-tuning web dashboard at `http://<car>:8887/dashboard`, alongside the stock Donkeycar UI at `/drive`. It's a lightweight, no-build-step page that talks to the running car over its own WiFi and is meant to be used while the car is actually driving.
+
+- **Live camera view:** a low-latency video stream of what the car sees, with the line-following and obstacle-detection overlay drawn on top — steering, throttle, heading, lane offset and tracking state are printed directly on the frame so you can see what the controller is "thinking" in real time.
+- **Start / Stop:** Start hands steering and throttle over to the pilot for full autopilot driving; Stop drops back to user/manual mode and zeroes the throttle. The space bar is bound to Stop as a quick kill switch.
+- **Record:** a toggle button to start and stop writing a data tub while driving, for later replay or analysis.
+- **Live tuning sliders:** lane offset, curve gain, min speed and max speed can all be adjusted while the car is driving, and take effect immediately, no restart needed.
+- **Lane presets:** one-click buttons for left lane, center line and right lane, each jumping to a field-tuned offset/gain pair for that mission, plus a "reset to myconfig" button that discards live tweaks and reloads the values checked into `myconfig.py`.
+- **Telemetry panel:** live readout of the line-follower state (e.g. tracking vs. lost), current maneuver, requested vs. applied lane offset, speed scale and other per-frame values, so tuning is driven by real numbers instead of guesswork.
+
+Slider changes made from the dashboard are live-only — to make a tuning change permanent it still needs to be copied into `myconfig.py`.
 
 ## Upstream contribution
 
