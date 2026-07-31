@@ -5,6 +5,6 @@ Team members:
 
 Silas Jude, Madhav Krishnaraj, Rami Abukhater, Toby Zhang
 
-Final Presentation:
+Final Presentation with demo videos:
 
 https://docs.google.com/presentation/d/10fKYDSIw8ZOM-bpjuJorGRp1Ba1uUbfYah_yTGAOlgI/edit?usp=sharing
